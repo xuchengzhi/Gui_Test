@@ -74,31 +74,44 @@ public class QRCode {
                      Color color = new Color(231, 144, 56);  
                      int colorInt = color.getRGB();  
                      pixels[y * width + x] = matrix.get(x, y) ? 0x00CED1  
-                             : 0xFFF8DC; //改变左上角码眼颜色
+                             : 0x6495ED; //前景色：背景色改变左上角码眼颜色
                  }
             	 else if (x > matrix.getWidth()-140 && x <matrix.getWidth() && y > 0 && y <  140) {  
                      Color color = new Color(231, 144, 56);  
                      int colorInt = color.getRGB();  
                      pixels[y * width + x] = matrix.get(x, y) ? 0x00CED1  
-                             : 0xFFF8DC; //改变右上角码眼颜色
+                             : 0x6495ED; //改变右上角码眼颜色
                  }
             	 else if (x > 0 && x <140 && y > matrix.getHeight()-140 && y <  matrix.getHeight()) {  
                      Color color = new Color(231, 144, 56);  
                      int colorInt = color.getRGB();  
                      pixels[y * width + x] = matrix.get(x, y) ? 0x00CED1  
-                             : 0xFFF8DC; //改变左下角码眼颜色
+                             : 0x6495ED; //改变左下角码眼颜色
                  }
+            	 else if (x > matrix.getWidth()/3.5 && x < matrix.getWidth()/2 && y > matrix.getHeight()/3.5 && y < matrix.getHeight()- matrix.getWidth()/2) {  
+                     Color color = new Color(231, 144, 56);  
+                     int colorInt = color.getRGB();  
+                     pixels[y * width + x] = matrix.get(x, y) ? 0x2691E  
+                             : 0x6495ED; //改变左上角4/1颜色
+                 }
+            	 else if ( x < matrix.getWidth()-140&&x >(matrix.getWidth()- matrix.getWidth()/2 ) && y > matrix.getHeight()/2 &&y <  (matrix.getHeight()-matrix.getHeight()/3.5)) {  
+                     Color color = new Color(231, 144, 56);  
+                     int colorInt = color.getRGB();
+                     pixels[y * width + x] = matrix.get(x, y) ? 0x000000  
+                             : 0x6495ED; //改变右下角4/1颜色
+                 }
+            	 
             	 else if (x > matrix.getWidth()/2 && x < matrix.getWidth() && y > matrix.getHeight()/2 && y <  matrix.getHeight()) {  
                     Color color = new Color(231, 144, 56);  
                     int colorInt = color.getRGB();  
-                    pixels[y * width + x] = matrix.get(x, y) ? 0x000080  
-                            : 0xFFF8DC; //改变左上角颜色
+                    pixels[y * width + x] = matrix.get(x, y) ? 0xADFF2F  
+                            : 0x6495ED; //改变右下上角颜色
                 }
                 else if (x > 0 && x < matrix.getHeight()/2 && y > 0 && y <  matrix.getWidth()/2) {  
                     Color color = new Color(231, 144, 56);  
                     int colorInt = color.getRGB();  
-                    pixels[y * width + x] = matrix.get(x, y) ? 0xDB7093  
-                            : 0xFFF8DC; //改变右下角颜色
+                    pixels[y * width + x] = matrix.get(x, y) ? 0xFF69B4  
+                            : 0x6495ED; //改变左上角颜色
                 }
                 // 读取图片  
 //                else if (x > halfW - IMAGE_HALF_WIDTH  
@@ -140,7 +153,7 @@ public class QRCode {
                     int colorInt = color.getRGB();  
                     // 此处可以修改二维码的颜色，可以分别制定二维码和背景的颜色；  
                     pixels[y * width + x] = matrix.get(x, y) ? 0x9932CC
-                            : 0xFFF8DC;// 0x000000:0xffffff  16777215 
+                            : 0x6495ED;// 0x000000:0xffffff  16777215 
                 }  
             }  
         }  
